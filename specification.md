@@ -248,16 +248,12 @@ Metadata for elements referenced by unique ID.
 **Example**:
 ```ramen
 Network {
-  router
+  router :mainRouter
   
   ref(mainRouter): {
     color: "green"
     size: "large"
   }
-}
-
-Network.router: {
-  ref: "mainRouter"
 }
 ```
 
