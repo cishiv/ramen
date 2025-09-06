@@ -1,0 +1,26 @@
+User {
+  browser
+  mobileApp
+}
+
+System {
+  frontend
+  backend
+  cache
+}
+
+User.browser -> System.frontend | "HTTP requests"
+User.mobileApp -> System.frontend | "API calls"
+System.frontend <-> System.backend | "bidirectional sync"
+System.backend - System.cache | "reads/writes"
+System.cache <- System.backend | "cache invalidation"
+
+System.frontend: {
+  x: 100
+  y: 50
+}
+
+System.backend: {
+  x: 200
+  y: 50
+}

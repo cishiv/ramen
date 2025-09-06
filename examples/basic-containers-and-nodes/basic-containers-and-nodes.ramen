@@ -1,0 +1,28 @@
+Frontend {
+  userInterface
+  router
+  stateManager
+}
+
+Backend {
+  apiGateway
+  authService
+  database
+}
+
+Frontend.router -> Backend.apiGateway
+Frontend.stateManager -> Backend.authService
+Backend.authService -> Backend.database
+
+Frontend: {
+  layout: "horizontal"
+}
+
+Backend: {
+  layout: "vertical"
+}
+
+Frontend.userInterface: {
+  color: "blue"
+  shape: "rectangle"
+}

@@ -1,0 +1,30 @@
+Documentation {
+  overview
+  apiDocs
+  examples
+}
+
+overview: {
+  content: \"
+  This system handles user authentication
+  and provides real-time data processing
+  capabilities for enterprise clients.
+  "\
+  color: "lightblue"
+  size: "large"
+}
+
+apiDocs: {
+  content: \"
+  GET /api/users
+  POST /api/auth/login
+  DELETE /api/auth/logout
+  "\
+  font: "monospace"
+}
+
+Documentation: {
+  layout: "vertical"
+  padding: 20
+  background: "#ffffff"
+}

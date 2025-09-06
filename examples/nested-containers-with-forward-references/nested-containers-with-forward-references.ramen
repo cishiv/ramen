@@ -1,0 +1,29 @@
+Cloud {
+  AWS {
+    s3
+    lambda
+    rds
+  }
+  
+  Monitoring {
+    cloudWatch
+    alerts
+  }
+}
+
+OnPremise {
+  loadBalancer
+  webServers
+}
+
+OnPremise.loadBalancer -> Cloud.AWS.lambda
+Cloud.AWS.lambda -> Cloud.AWS.rds
+Cloud.AWS.s3 -> Cloud.Monitoring.cloudWatch
+
+Cloud: {
+  background: "#f0f8ff"
+}
+
+Cloud.AWS: {
+  layout: "grid"
+}

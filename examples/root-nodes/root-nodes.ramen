@@ -1,0 +1,27 @@
+database
+webServer
+loadBalancer
+
+database -> webServer | "data queries"
+loadBalancer -> webServer | "traffic routing"
+
+database: {
+  shape: "cylinder"
+  color: "darkblue"
+  x: 300
+  y: 200
+}
+
+webServer: {
+  shape: "rectangle"
+  color: "green"
+  x: 200
+  y: 100
+}
+
+loadBalancer: {
+  shape: "diamond"
+  color: "purple"
+  x: 100
+  y: 100
+}

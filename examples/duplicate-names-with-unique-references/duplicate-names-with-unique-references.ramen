@@ -1,0 +1,37 @@
+Network {
+  router
+  router
+  switch
+}
+
+DataCenter {
+  router
+  firewall
+}
+
+Network.ref(mainRouter) -> Network.switch
+Network.ref(backupRouter) -> DataCenter.router
+DataCenter.router -> DataCenter.firewall
+
+Network: {
+  layout: "manual"
+}
+
+Network.router: {
+  ref: "mainRouter"
+  x: 50
+  y: 100
+  color: "green"
+}
+
+Network.router: {
+  ref: "backupRouter"
+  x: 150
+  y: 100
+  color: "orange"
+}
+
+Network.switch: {
+  x: 100
+  y: 200
+}
