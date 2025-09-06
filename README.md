@@ -1,5 +1,7 @@
 # The Ramen Language Specification
 
+> NB: Ramen is under development and breaking changes will happen.
+
 ## Overview
 
 Ramen is a declarative domain-specific language (DSL) for creating diagrams. It emphasizes clear hierarchical structure, flexible metadata, and visual portability across different rendering tools.
@@ -355,5 +357,3 @@ Backend.database: {
   y: 300
 }
 ```
-
-This specification provides the foundation for implementing the Ramen language parser and rendering system.
