@@ -140,29 +140,35 @@ OnPremise.server -> Cloud.AWS.lambda
 ```
 
 ### Unique References
-When multiple nodes share the same name, use unique references for disambiguation.
+When multiple nodes share the same name, assign unique references using the :refId syntax.
 
-**Syntax**: `Container.ref(uniqueId)`
+**Syntax:**
 
-**Example**:
-```ramen
-Network {
-  router
-  router
+- Declaration: `nodeName :refId`
+- Reference: `Container.ref(refId)`
+- Metadata: `ref(refId): { properties }`
+
+
+Example:
+
+```
+ramenNetwork {
+  router :mainRouter
+  router :backupRouter
   switch
 }
 
 Network.ref(mainRouter) -> Network.switch
 Network.ref(backupRouter) -> Network.switch
 
-Network.router: {
-  ref: "mainRouter"
+Network.ref(mainRouter): {
   color: "green"
+  position: "primary"
 }
 
-Network.router: {
-  ref: "backupRouter"  
+Network.ref(backupRouter): {
   color: "orange"
+  position: "backup"
 }
 ```
 
@@ -294,6 +300,17 @@ Here, `database`, `webServer`, and `loadBalancer` are nodes in the implicit root
 - Invalid references: `unknownContainer.unknownNode`
 - Duplicate names without unique references in the same scope
 - Metadata for non-existent elements
+
+### Reference assignment:
+
+- Optional for nodes with unique names in their scope
+- Required when multiple nodes share the same name
+- Uses colon syntax consistent with edge labels: :refId
+
+### Reference resolution:
+
+- Container.nodeName - references node by name (must be unique)
+- Container.ref(refId) - references node by assigned reference ID
 
 ## Complete Example
 
