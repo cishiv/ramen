@@ -1,3 +1,5 @@
+![logo](./ramen_logo.svg)
+
 # The Ramen Language Specification
 
 > NB: Ramen is under development and breaking changes will happen.
